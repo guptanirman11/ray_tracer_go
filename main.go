@@ -9,23 +9,20 @@ import (
 )
 
 func main() {
-	// TODO
-	imgWidth := 256
-	imgHeight := 256
+	imgWidth := 400
+	imgHeight := 400
 
 	img := image.NewRGBA(image.Rect(0, 0, imgWidth, imgHeight))
 
-	for y := 0; y < imgHeight; y++ {
-		for x := 0; x < imgWidth; x++ {
+	for j := 0; j < imgHeight; j++ {
+		for i := 0; i < imgWidth; i++ {
 
-			r := float64(x) / float64(imgWidth-1)
-			g := float64(y) / float64(imgHeight-1)
-			b := 0.2
+			v := Vector{x: float64(i) / float64(imgWidth-1), y: float64(j) / float64(imgHeight-1), z: 0.2}
 
-			img.Set(x, y, color.RGBA{
-				uint8(r * 255.999),
-				uint8(g * 255.999),
-				uint8(b * 255.999),
+			img.Set(i, j, color.RGBA{
+				uint8(v.x * 255.999),
+				uint8(v.y * 255.999),
+				uint8(v.z * 255.999),
 				255,
 			})
 		}
